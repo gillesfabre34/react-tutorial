@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ReactDOM from "react-dom";
 import { Clock } from "./components/clock";
+import { Temperature } from "./components/temperature";
 
 function Welcome({name, children}) {
   return <div>
@@ -16,6 +17,7 @@ function App() {
         <Welcome name="aaa" />
         <Welcome name="zzz" />
         <Clock />
+        <Temperature/>
     </div>
   );
 }
