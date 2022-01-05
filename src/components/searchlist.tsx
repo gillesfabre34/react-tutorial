@@ -27,20 +27,17 @@ function SearchBar(): ReactElement {
 function List(props: {products: Product[]}) {
 	let children: ReactElement[] = [];
 	const categories: string[] = [...new Set(props.products.map(p => p.category))];
-	let i = 0;
 	for (let category of categories) {
-		children.push(ListElement({text: category, className: categoryClass, key: i}));
+		children.push(ListElement({text: category, className: categoryClass, key: category}));
 		const categoryProducts: Product[] = props.products.filter(p => p.category === category);
 		for (let product of categoryProducts) {
-			i++;
-			children.push(ListElement({text: product.name, className: "", key: i}));
+			children.push(ListElement({text: product.name, className: "", key: product.name}));
 		}
-		i++;
 	}
 	return <div className={listClass}>{children}</div>;
 }
 
-function ListElement(props: { text: string, className: string, key: number }) {
+function ListElement(props: { text: string, className: string, key: string }) {
 	return <div className={props.className} key={props.key}>{props.text}</div>;
 }
 

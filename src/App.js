@@ -3,6 +3,7 @@ import { Clock } from "./components/clock";
 import { Temperature } from "./components/temperature";
 import { SearchList } from "./components/searchlist";
 import { PRODUCTS } from "./data/products";
+import { Counter } from "./components/counter";
 
 function Welcome({name, children}) {
   return <div>
@@ -19,6 +20,7 @@ function App() {
         <Clock />
         <Temperature/>
         <SearchList products={PRODUCTS}/>
+        <Counter />
     </div>
   );
 }
