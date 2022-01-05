@@ -24,7 +24,7 @@ export class Temperature extends React.Component<{}, ITemperature> {
         console.log("SATTE", this.state)
     }
 
-    refresh(e): void {
+    refresh(e: any): void {
         const scale: TempScale = e.target.name;
         const temperature: number = e.target.value;
         console.log("refreshhh", e.target.value, e.target.name)

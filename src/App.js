@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import ReactDOM from "react-dom";
 import { Clock } from "./components/clock";
 import { Temperature } from "./components/temperature";
+import { SearchList } from "./components/searchlist";
+import { PRODUCTS } from "./data/products";
 
 function Welcome({name, children}) {
   return <div>
@@ -18,6 +18,7 @@ function App() {
         <Welcome name="zzz" />
         <Clock />
         <Temperature/>
+        <SearchList products={PRODUCTS}/>
     </div>
   );
 }

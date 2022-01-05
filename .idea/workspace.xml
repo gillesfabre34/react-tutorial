@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa4ac1e-4811-4b85-8e5c-63bf0cf73c28" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/searchlist.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/products.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/product.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/temperature.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/temperature.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +21,8 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -77,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641287123967</updated>
-      <workItem from="1641287125184" duration="11173000" />
+      <workItem from="1641287125184" duration="17561000" />
     </task>
     <servers />
   </component>
