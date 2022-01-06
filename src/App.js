@@ -17,7 +17,7 @@ function App() {
     <div id="app" className="App">
         <Welcome name="aaa" />
         <Welcome name="zzz" />
-        <Clock />
+        {/*<Clock />*/}
         <Temperature/>
         <SearchList products={PRODUCTS}/>
         <Counter />

@@ -8,37 +8,65 @@ const categoryClass: string = classNames({
 	fontWeight: 'bold',
 });
 
-const searchListClass: string = classNames({
-	backgroundColor: 'red',
-	padding: '5px'
-});
-
 const listClass: string = classNames({
 	backgroundColor: 'red',
 	padding: '5px'
 });
 
 function SearchBar(): ReactElement {
-	return <div style={{backgroundColor: 'blue', height: '50px'}}>
 
+
+	const handleTextChange = () => {
+
+	}
+
+	const handleCheckboxClick = () => {
+
+	}
+	return <div style={{backgroundColor: 'blue', height: '50px'}}>
+		<input type="text" onChange={handleTextChange} placeholder="Search..."/>
+		<input type="checkbox" onChange={handleCheckboxClick}/>
 	</div>;
 }
 
-function List(props: {products: Product[]}) {
-	let children: ReactElement[] = [];
-	const categories: string[] = [...new Set(props.products.map(p => p.category))];
+function List({products}) {
+	let rows: any[] = [];
+	const categories = [...new Set(products.map(p => p.category))] as string[];
 	for (let category of categories) {
-		children.push(ListElement({text: category, className: categoryClass, key: category}));
-		const categoryProducts: Product[] = props.products.filter(p => p.category === category);
+		console.log('CATTTT', category);
+		rows.push(<ProductCategoryRow category={category} key={category} />);
+		const categoryProducts: Product[] = products.filter(p => p.category === category);
 		for (let product of categoryProducts) {
-			children.push(ListElement({text: product.name, className: "", key: product.name}));
+			console.log('PRODDDD', product)
+			rows.push(<ProductRow key={product.name} product={product} />);
+			// rows.push(<ProductRow  category={product.category} name={product.name} price={product.price} stocked={product.stocked} key={product.name}/>);
 		}
 	}
-	return <div className={listClass}>{children}</div>;
+	return <table>
+		<thead>
+		<tr>
+			<td>Name</td>
+			<td>Price</td>
+		</tr>
+		</thead>
+		<tbody>
+		{rows}
+		</tbody>
+	</table>;
 }
 
-function ListElement(props: { text: string, className: string, key: string }) {
-	return <div className={props.className} key={props.key}>{props.text}</div>;
+const ProductRow: React.FC<{product: Product}> = ({product}) => {
+	return <tr className={listClass}>
+		<td>{product.name}</td>
+		<td>{product.price}</td>
+	</tr>;
+}
+
+
+const ProductCategoryRow: React.FC<{category: string}> = (category) => {
+	return <tr>
+		<th colSpan={2}>{category}</th>
+	</tr>
 }
 
 export class SearchList extends React.Component<{products: Product[]}, {}> {
