@@ -1,22 +1,22 @@
-import { Component, CSSProperties, ReactElement } from 'react';
+import { Component, CSSProperties, ReactElement, useState } from 'react';
 import { Product } from '../models/product';
 import { PRODUCTS } from '../data/products';
 import React from 'react';
 
 
-function SearchBar(): ReactElement {
-
+const SearchBar: React.FC<{filterText: string, inStockOnly: boolean, onStockOnlyChange}> = ({filterText, inStockOnly, onStockOnlyChange}) => {
 
 	const handleTextChange = () => {
-
+		// setText()
 	}
 
-	const handleCheckboxClick = () => {
-
+	const handleCheckboxClick = (e) => {
+		onStockOnlyChange(e.target.checked);
 	}
+
 	return <div>
 		<input type="text" onChange={handleTextChange} placeholder="Search..."/>
-		<input type="checkbox" onChange={handleCheckboxClick}/>
+		<input type="checkbox" checked={inStockOnly} onChange={handleCheckboxClick}/>
 	</div>;
 }
 
@@ -25,7 +25,7 @@ const List: React.FC<{products: Product[], filterText: string, inStockOnly: bool
 	const categories = [...new Set(products.map(p => p.category))] as string[];
 	for (let category of categories) {
 		rows.push(<ProductCategoryRow category={category} key={category} />);
-		const categoryProducts: Product[] = products.filter(p => p.category === category);
+		const categoryProducts: Product[] = products.filter(p => p.category === category && (!inStockOnly || (inStockOnly && p.stocked)));
 		for (let product of categoryProducts) {
 			rows.push(<ProductRow key={product.name} product={product} />);
 		}
@@ -65,8 +65,11 @@ export class SearchList extends React.Component<{products: Product[]}, {filterTe
 	}
 
 	render() {
+		const handleStockOnlyChange = (inStockOnly: boolean) => {
+			this.setState({...this.state, inStockOnly: inStockOnly})
+		}
 		return <div>
-			<SearchBar />
+			<SearchBar onStockOnlyChange={handleStockOnlyChange} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
 			<List products={this.props.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
 		</div>;
 	}
