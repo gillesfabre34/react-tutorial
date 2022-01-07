@@ -20,7 +20,7 @@ function SearchBar(): ReactElement {
 	</div>;
 }
 
-function List({products}) {
+const List: React.FC<{products: Product[], filterText: string, inStockOnly: boolean}> = ({products, filterText, inStockOnly}) => {
 	let rows: any[] = [];
 	const categories = [...new Set(products.map(p => p.category))] as string[];
 	for (let category of categories) {
@@ -30,7 +30,7 @@ function List({products}) {
 			rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
-	return <table className="table w-25 table-bordered m-auto mt-3 mb-5">
+	return <table className="table w-25 table-bordered table-hover m-auto mt-3 mb-5">
 		<thead>
 		<tr>
 			<td>Name</td>
@@ -57,13 +57,17 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	</tr>
 }
 
-export class SearchList extends React.Component<{products: Product[]}, {}> {
+export class SearchList extends React.Component<{products: Product[]}, {filterText: string, inStockOnly: boolean}> {
+
+	constructor(props) {
+		super(props);
+		this.state = {filterText: '', inStockOnly: false};
+	}
 
 	render() {
-		const {products} = this.props;
 		return <div>
 			<SearchBar />
-			<List products={products} />
+			<List products={this.props.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
 		</div>;
 	}
 }

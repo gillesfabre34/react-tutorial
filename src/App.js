@@ -15,7 +15,6 @@ function Welcome({name, children}) {
 function App() {
   return (
     <div id="app" className="App">
-        <Welcome name="aaa" />
         <Welcome name="zzz" />
         {/*<Clock />*/}
         <Temperature/>
