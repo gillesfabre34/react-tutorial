@@ -1,6 +1,8 @@
-import React, { memo, NamedExoticComponent, ReactElement } from 'react';
+import React, { memo, NamedExoticComponent, ReactElement, useReducer } from 'react';
 import { Product } from '../models/product';
 import { Counter } from './counter';
+import { store } from '../store/store';
+import { counterReducer } from '../store/counterSlice';
 
 
 const SearchBar: React.FC<{filterText: string, inStockOnly: boolean, onStockOnlyChange: (checked: boolean) => unknown, onTextChange: (text: string) => unknown}> = (
@@ -32,19 +34,25 @@ const List: React.FC<{products: Product[], filterText: string, inStockOnly: bool
 				&& (!filterText || (filterText && p.name.includes(filterText)))
 		);
 		for (let product of categoryProducts) {
-			rows.push(<ProductRowComponent key={product.name} product={product} />);
-			// rows.push(<ProductRow key={product.name} product={product} />);
+			rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
+	const storeState = store.getState();
 	return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
 		<thead>
 		<tr>
 			<td>Name</td>
 			<td>Price</td>
+			<td>Articles</td>
 		</tr>
 		</thead>
 		<tbody>
 		{rows}
+		<tr>
+			<td>TOTAL</td>
+			<td></td>
+			<td>{storeState}</td>
+		</tr>
 		</tbody>
 	</table>;
 }

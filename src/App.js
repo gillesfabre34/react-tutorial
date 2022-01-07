@@ -3,7 +3,10 @@ import { Clock } from "./components/clock";
 import { Temperature } from "./components/temperature";
 import { SearchList } from "./components/searchlist";
 import { PRODUCTS } from "./data/products";
+import { store } from "./store/store";
 import { Counter } from "./components/counter";
+import { createStore } from "@reduxjs/toolkit";
+import { counterReducer } from "./store/counterSlice";
 
 function Welcome({name, children}) {
   return <div>
@@ -11,7 +14,7 @@ function Welcome({name, children}) {
       <p>{children}</p>
   </div>
 }
-
+const strr = createStore(counterReducer);
 function App() {
   return (
     <div id="app" className="App">
