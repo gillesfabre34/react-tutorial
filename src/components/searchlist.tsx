@@ -2,16 +2,7 @@ import { Component, CSSProperties, ReactElement } from 'react';
 import { Product } from '../models/product';
 import { PRODUCTS } from '../data/products';
 import React from 'react';
-const classNames = require('classnames');
 
-const categoryClass: string = classNames({
-	fontWeight: 'bold',
-});
-
-const listClass: string = classNames({
-	backgroundColor: 'red',
-	padding: '5px'
-});
 
 function SearchBar(): ReactElement {
 
@@ -23,7 +14,7 @@ function SearchBar(): ReactElement {
 	const handleCheckboxClick = () => {
 
 	}
-	return <div style={{backgroundColor: 'blue', height: '50px'}}>
+	return <div>
 		<input type="text" onChange={handleTextChange} placeholder="Search..."/>
 		<input type="checkbox" onChange={handleCheckboxClick}/>
 	</div>;
@@ -39,7 +30,7 @@ function List({products}) {
 			rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
-	return <table>
+	return <table className="table-bordered mt-3 mb-5">
 		<thead>
 		<tr>
 			<td>Name</td>
@@ -53,7 +44,7 @@ function List({products}) {
 }
 
 const ProductRow: React.FC<{product: Product}> = ({product}) => {
-	return <tr className={listClass}>
+	return <tr>
 		<td>{product.name}</td>
 		<td>{product.price}</td>
 	</tr>;
@@ -71,7 +62,7 @@ export class SearchList extends React.Component<{products: Product[]}, {}> {
 
 	render() {
 		const {products} = this.props;
-		return <div style={{width: "200px", backgroundColor: 'darkgreen'}}>
+		return <div>
 			<SearchBar />
 			<List products={products} />
 		</div>;
