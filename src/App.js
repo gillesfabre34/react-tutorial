@@ -19,7 +19,6 @@ function App() {
         {/*<Clock />*/}
         <Temperature/>
         <SearchList products={PRODUCTS}/>
-        <Counter />
     </div>
   );
 }

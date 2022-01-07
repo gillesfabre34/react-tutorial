@@ -1,7 +1,8 @@
-import { Component, CSSProperties, ReactElement, useState } from 'react';
+import { Component, CSSProperties, memo, NamedExoticComponent, ReactElement, useState } from 'react';
 import { Product } from '../models/product';
 import { PRODUCTS } from '../data/products';
 import React from 'react';
+import { Counter } from './counter';
 
 
 const SearchBar: React.FC<{filterText: string, inStockOnly: boolean, onStockOnlyChange: (checked: boolean) => unknown, onTextChange: (text: string) => unknown}> = (
@@ -23,8 +24,8 @@ const SearchBar: React.FC<{filterText: string, inStockOnly: boolean, onStockOnly
 }
 
 const List: React.FC<{products: Product[], filterText: string, inStockOnly: boolean}> = ({products, filterText, inStockOnly}) => {
-	let rows: any[] = [];
-	const categories = [...new Set(products.map(p => p.category))] as string[];
+	let rows: ReactElement[] = [];
+	const categories: string[] = [...new Set(products.map(p => p.category))];
 	for (let category of categories) {
 		rows.push(<ProductCategoryRow category={category} key={category} />);
 		const categoryProducts: Product[] = products.filter(
@@ -33,10 +34,11 @@ const List: React.FC<{products: Product[], filterText: string, inStockOnly: bool
 				&& (!filterText || (filterText && p.name.includes(filterText)))
 		);
 		for (let product of categoryProducts) {
-			rows.push(<ProductRow key={product.name} product={product} />);
+			rows.push(<ProductRowComponent key={product.name} product={product} />);
+			// rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
-	return <table className="table w-25 table-bordered table-hover m-auto mt-3 mb-5">
+	return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
 		<thead>
 		<tr>
 			<td>Name</td>
@@ -49,13 +51,15 @@ const List: React.FC<{products: Product[], filterText: string, inStockOnly: bool
 	</table>;
 }
 
-const ProductRow: React.FC<{product: Product}> = ({product}) => {
+const ProductRowComponent: React.FC<{product: Product}> = ({product}) => {
 	return <tr>
 		<td>{product.name}</td>
 		<td>{product.price}</td>
+		<td><Counter /></td>
 	</tr>;
 }
 
+const ProductRow: NamedExoticComponent<{product: Product}> = memo(ProductRowComponent);
 
 const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	return <tr>
@@ -75,7 +79,6 @@ export class SearchList extends React.Component<{products: Product[]}, {filterTe
 	}
 
 	handleTextChange = (text: string) => {
-		console.log('HDL', text)
 		this.setState({filterText: text})
 	}
 

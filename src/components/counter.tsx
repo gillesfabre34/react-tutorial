@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function useIncrement(initialCount, step) {
 	const [count, setCount] = useState(initialCount);
@@ -19,10 +19,16 @@ function useToggle(visible) {
 
 export function Counter() {
 
-	const [count, increment] = useIncrement(0, 3);
+	const [count, increment] = useIncrement(0, 1);
 	const [isChecked, toggle] = useToggle(false);
+
+	useEffect(() => {
+		document.title = 'Total articles : ' + count;
+	});
+
 	return <div>
-		<input type="checkbox" onChange={toggle} checked={isChecked} />
-		{ !isChecked && <button onClick={increment}>Increment {count}</button> }
+		{/*<input type="checkbox" onChange={toggle} checked={isChecked} />*/}
+		{ !isChecked && <button onClick={increment}>+</button> }
+		<span style={{marginLeft: "10px"}} > {count}</span>
 	</div>
 }
