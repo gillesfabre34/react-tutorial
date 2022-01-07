@@ -30,7 +30,7 @@ function List({products}) {
 			rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
-	return <table className="table-bordered mt-3 mb-5">
+	return <table className="table w-25 table-bordered m-auto mt-3 mb-5">
 		<thead>
 		<tr>
 			<td>Name</td>
@@ -51,10 +51,9 @@ const ProductRow: React.FC<{product: Product}> = ({product}) => {
 }
 
 
-const ProductCategoryRow: React.FC<{category: string}> = (category) => {
+const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	return <tr>
-		<th colSpan={2}>zzz</th>
-		{/*<th colSpan={2}>{category}</th>*/}
+		<th colSpan={2}>{props.category}</th>
 	</tr>
 }
 
