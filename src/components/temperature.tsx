@@ -21,7 +21,6 @@ export class Temperature extends React.Component<{}, ITemperature> {
         super(props);
         this.state = {message: this.boilsMsg, celsius: '', fahrenheit: ''}
         this.refresh = this.refresh.bind(this);
-        console.log("SATTE", this.state)
     }
 
     refresh(e: any): void {

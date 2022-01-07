@@ -1,7 +1,5 @@
-import { Component, CSSProperties, memo, NamedExoticComponent, ReactElement, useState } from 'react';
+import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
-import { PRODUCTS } from '../data/products';
-import React from 'react';
 import { Counter } from './counter';
 
 
