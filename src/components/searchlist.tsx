@@ -71,12 +71,12 @@ export class SearchList extends React.Component<{products: Product[]}, {filterTe
 	}
 
 	handleStockOnlyChange = (inStockOnly: boolean) => {
-		this.setState({...this.state, inStockOnly: inStockOnly})
+		this.setState({inStockOnly: inStockOnly})
 	}
 
 	handleTextChange = (text: string) => {
 		console.log('HDL', text)
-		this.setState({...this.state, filterText: text})
+		this.setState({filterText: text})
 	}
 
 	render() {
