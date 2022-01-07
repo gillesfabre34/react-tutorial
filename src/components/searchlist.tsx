@@ -33,13 +33,10 @@ function List({products}) {
 	let rows: any[] = [];
 	const categories = [...new Set(products.map(p => p.category))] as string[];
 	for (let category of categories) {
-		console.log('CATTTT', category);
 		rows.push(<ProductCategoryRow category={category} key={category} />);
 		const categoryProducts: Product[] = products.filter(p => p.category === category);
 		for (let product of categoryProducts) {
-			console.log('PRODDDD', product)
 			rows.push(<ProductRow key={product.name} product={product} />);
-			// rows.push(<ProductRow  category={product.category} name={product.name} price={product.price} stocked={product.stocked} key={product.name}/>);
 		}
 	}
 	return <table>
@@ -65,7 +62,8 @@ const ProductRow: React.FC<{product: Product}> = ({product}) => {
 
 const ProductCategoryRow: React.FC<{category: string}> = (category) => {
 	return <tr>
-		<th colSpan={2}>{category}</th>
+		<th colSpan={2}>zzz</th>
+		{/*<th colSpan={2}>{category}</th>*/}
 	</tr>
 }
 
