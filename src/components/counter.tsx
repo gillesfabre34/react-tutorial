@@ -1,14 +1,12 @@
-import React, { useEffect, useReducer, useState } from 'react';
-import { counterReducer } from '../store/counterSlice';
+import React, { useEffect, useState } from 'react';
+import { store } from '../store/store';
 
 function useIncrement(initialCount, step) {
 	const [count, setCount] = useState(initialCount);
-	const [nbArticles, dispatch] = useReducer(counterReducer, 0);
 
 	function increment() {
 		setCount(c => c + step);
-		dispatch({type: 'counter/increment', payload: step});
-		console.log('nbbbb', nbArticles)
+		store.dispatch({type: 'counter/increment', payload: step});
 	}
 	return [count, increment];
 }

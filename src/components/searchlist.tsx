@@ -37,7 +37,7 @@ const List: React.FC<{products: Product[], filterText: string, inStockOnly: bool
 			rows.push(<ProductRow key={product.name} product={product} />);
 		}
 	}
-	const storeState = store.getState();
+	const storeState = store.getState().count;
 	return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
 		<thead>
 		<tr>
