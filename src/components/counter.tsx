@@ -21,16 +21,16 @@ function useToggle(visible) {
 
 export function Counter() {
 
-	const [count, increment] = useIncrement(0, 3);
+	const [newProducts, increment] = useIncrement(0, 3);
 	const [isChecked, toggle] = useToggle(false);
 
 	useEffect(() => {
-		document.title = 'Total articles : ' + count;
+		document.title = 'Total articles : ' + store.getState().nbProducts;
 	});
 
 	return <div>
 		{/*<input type="checkbox" onChange={toggle} checked={isChecked} />*/}
 		{ !isChecked && <button onClick={increment}>+</button> }
-		<span style={{marginLeft: "10px"}} > {count}</span>
+		<span style={{marginLeft: "10px"}} > {newProducts}</span>
 	</div>
 }

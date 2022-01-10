@@ -1,8 +1,9 @@
 export const counterReducer = (state, action) => {
 	switch (action.type) {
 		case 'counter/increment':
-			console.log('REDUCERRRR', state.count, action.payload)
-			return {count: state.count + action.payload};
+			const nbProducts = state.nbProducts || 0;
+			console.log('REDUCERRRR', state.nbProducts, action.payload)
+			return {nbProducts: nbProducts + action.payload};
 		default:
 			return state;
 	}
