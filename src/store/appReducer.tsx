@@ -1,11 +1,10 @@
-import { ADD_PRODUCTS } from './actions';
+import { ADD_PRODUCT } from './actions';
 
 export const appReducer = (state, action) => {
 	switch (action.type) {
-		case ADD_PRODUCTS:
+		case ADD_PRODUCT:
 			const nbProducts = state.nbProducts || 0;
-			console.log('REDUCERRRR', state.nbProducts, action.payload)
-			return {nbProducts: nbProducts + action.payload};
+			return {nbProducts: nbProducts + 1};
 		default:
 			return state;
 	}

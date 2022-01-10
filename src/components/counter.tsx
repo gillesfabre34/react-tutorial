@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { store } from '../store/store';
-import { ADD_PRODUCTS, addProducts } from '../store/actions';
+import { ADD_PRODUCT, addProduct } from '../store/actions';
 import { connect } from 'react-redux';
 
 function useIncrement(initialCount) {
@@ -8,7 +8,6 @@ function useIncrement(initialCount) {
 
 	function increment(step: number) {
 		setCount(c => c + step);
-		store.dispatch({type: ADD_PRODUCTS, payload: step});
 	}
 	return [count, increment];
 }
@@ -21,20 +20,25 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export const Counter: React.FC<{addProducts: (newProducts: number) => any}> = ({addProducts}) => {
+export const Counter: React.FC<{addProduct: () => any}> = ({addProduct}) => {
 
 	const [newProducts, increment] = useIncrement(0);
 	const [isChecked, toggle] = useToggle(false);
 
-	console.log("PROPSSSS", addProducts)
+	console.log("PROPSSSS", addProduct)
 
 	useEffect(() => {
 		document.title = 'Total articles : ' + store.getState().nbProducts;
 	});
 
+	const add = () => {
+		increment(1);
+		addProduct();
+	}
+
 	return <div>
 		{/*<input type="checkbox" onChange={toggle} checked={isChecked} />*/}
-		{ !isChecked && <button onClick={() => increment(2)}>Add</button> }
+		{ !isChecked && <button onClick={() => add()}>Add</button> }
 		<span style={{marginLeft: "10px"}} > {newProducts}</span>
 	</div>
 }
@@ -48,7 +52,7 @@ const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
 	return {
-		addProducts: (nbProducts: number) => dispatch(addProducts(nbProducts))
+		addProduct: () => dispatch(addProduct())
 	};
 };
 
