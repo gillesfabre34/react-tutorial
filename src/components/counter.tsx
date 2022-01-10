@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { store } from '../store/store';
+import { ADD_PRODUCTS } from '../store/actions';
 
 function useIncrement(initialCount, step) {
 	const [count, setCount] = useState(initialCount);
 
 	function increment() {
 		setCount(c => c + step);
-		store.dispatch({type: 'counter/increment', payload: step});
+		store.dispatch({type: ADD_PRODUCTS, payload: step});
 	}
 	return [count, increment];
 }
