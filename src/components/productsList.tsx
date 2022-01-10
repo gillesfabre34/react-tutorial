@@ -2,6 +2,7 @@ import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
 import { Counter } from './counter';
 import { connect } from 'react-redux';
+import { addProducts } from '../store/actions';
 
 
 const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, nbProducts?: number}> =
@@ -43,7 +44,7 @@ const ProductRowComponent: React.FC<{product: Product}> = ({product}) => {
 	return <tr>
 		<td>{product.name}</td>
 		<td>{product.price}</td>
-		<td><Counter /></td>
+		<td><Counter nbProducts={0} addProducts={addProducts}/></td>
 	</tr>;
 }
 
@@ -57,12 +58,6 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 
 
 const mapStateToProps = state => {
-	return {
-		nbProducts: state.nbProducts || 0
-	};
-};
-
-const mapDispatchToProps = state => {
 	return {
 		nbProducts: state.nbProducts || 0
 	};

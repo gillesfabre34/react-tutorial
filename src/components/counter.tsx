@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { store } from '../store/store';
-import { ADD_PRODUCTS } from '../store/actions';
+import { ADD_PRODUCTS, addProducts } from '../store/actions';
+import { connect } from 'react-redux';
 
 function useIncrement(initialCount, step) {
 	const [count, setCount] = useState(initialCount);
@@ -20,10 +21,12 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export function Counter() {
+export function Counter({nbProducts, addProducts}) {
 
 	const [newProducts, increment] = useIncrement(0, 3);
 	const [isChecked, toggle] = useToggle(false);
+
+	console.log("PROPSSSS", addProducts)
 
 	useEffect(() => {
 		document.title = 'Total articles : ' + store.getState().nbProducts;
@@ -32,6 +35,23 @@ export function Counter() {
 	return <div>
 		{/*<input type="checkbox" onChange={toggle} checked={isChecked} />*/}
 		{ !isChecked && <button onClick={increment}>+</button> }
-		<span style={{marginLeft: "10px"}} > {newProducts}</span>
+		{ !isChecked && <button onClick={() => addProducts(1)}>Add</button> }
+		<span style={{marginLeft: "10px"}} > {newProducts} / {nbProducts}</span>
 	</div>
 }
+
+
+const mapStateToProps = state => {
+	return {
+		nbProducts: state.nbProducts || 0
+	};
+};
+
+export const mapDispatchToProps = dispatch => {
+	return {
+		addProducts: (nbProducts: number) => dispatch(addProducts(nbProducts))
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
