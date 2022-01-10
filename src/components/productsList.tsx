@@ -1,14 +1,11 @@
-import React, { memo, NamedExoticComponent, ReactElement, useCallback, useEffect, useReducer } from 'react';
+import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
 import { Counter } from './counter';
-import { store } from '../store/store';
 import { connect } from 'react-redux';
 
 
 const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, nbProducts?: number}> =
 	({products, filterText, inStockOnly, nbProducts}) => {
-// const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, addArticles?: (nbArticles) => any}> =
-// 	({products, filterText, inStockOnly, addArticles}) => {
 
 	let rows: ReactElement[] = [];
 	const categories: string[] = [...new Set(products.map(p => p.category))];
@@ -58,13 +55,12 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	</tr>
 }
 
-const addProducts = (newProducts = 1) => {
-	return (dispatch, getState) => {
-		console.log("addprodu", getState())
-		store.dispatch({type: 'counter/increment', payload: getState().nbProducts + newProducts});
-	}
-}
 
+const mapStateToProps = state => {
+	return {
+		nbProducts: state.nbProducts || 0
+	};
+};
 
 const mapDispatchToProps = state => {
 	return {
@@ -72,11 +68,4 @@ const mapDispatchToProps = state => {
 	};
 };
 
-export default connect(mapDispatchToProps)(ProductsList);
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		addProduct: (newProducts: number) => dispatch(addProducts(newProducts))
-// 	};
-// };
-//
-// export default ProductsList;
+export default connect(mapStateToProps)(ProductsList);

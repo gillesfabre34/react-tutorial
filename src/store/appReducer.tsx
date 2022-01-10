@@ -1,4 +1,4 @@
-export const counterReducer = (state, action) => {
+export const appReducer = (state, action) => {
 	switch (action.type) {
 		case 'counter/increment':
 			const nbProducts = state.nbProducts || 0;
