@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/src/components/counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/productsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/searchComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +14,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="mapDispatchProps" />
+                    <option name="lastUsedInstant" value="1641821559" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1641821558" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641814662002</updated>
-      <workItem from="1641814664005" duration="2201000" />
+      <workItem from="1641814664005" duration="4493000" />
     </task>
     <servers />
   </component>

@@ -3,10 +3,10 @@ import { store } from '../store/store';
 import { ADD_PRODUCTS, addProducts } from '../store/actions';
 import { connect } from 'react-redux';
 
-function useIncrement(initialCount, step) {
+function useIncrement(initialCount) {
 	const [count, setCount] = useState(initialCount);
 
-	function increment() {
+	function increment(step: number) {
 		setCount(c => c + step);
 		store.dispatch({type: ADD_PRODUCTS, payload: step});
 	}
@@ -21,9 +21,9 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export function Counter({nbProducts, addProducts}) {
+export const Counter: React.FC<{addProducts: (newProducts: number) => any}> = ({addProducts}) => {
 
-	const [newProducts, increment] = useIncrement(0, 3);
+	const [newProducts, increment] = useIncrement(0);
 	const [isChecked, toggle] = useToggle(false);
 
 	console.log("PROPSSSS", addProducts)
@@ -34,9 +34,8 @@ export function Counter({nbProducts, addProducts}) {
 
 	return <div>
 		{/*<input type="checkbox" onChange={toggle} checked={isChecked} />*/}
-		{ !isChecked && <button onClick={increment}>+</button> }
-		{ !isChecked && <button onClick={() => addProducts(1)}>Add</button> }
-		<span style={{marginLeft: "10px"}} > {newProducts} / {nbProducts}</span>
+		{ !isChecked && <button onClick={() => increment(2)}>Add</button> }
+		<span style={{marginLeft: "10px"}} > {newProducts}</span>
 	</div>
 }
 
@@ -53,5 +52,5 @@ export const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter);
 
