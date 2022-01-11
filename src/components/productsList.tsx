@@ -2,19 +2,19 @@ import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
 import { connect } from 'react-redux';
 import { Counter } from './counter';
-import { store } from '../store/store';
 
 export interface ProductsListProps  {
+	products: Product[],
 	filterText: string,
 	inStockOnly: boolean,
 	nbArticles?: number,
 }
 
 const ProductsList: React.FC<ProductsListProps> =
-	({filterText, inStockOnly, nbArticles}) => {
+	({products, filterText, inStockOnly, nbArticles}) => {
 
 	let rows: ReactElement[] = [];
-	const products: Product[] = store.getState().products;
+	// const products: Product[] = store.getState().products;
 	const categories: string[] = [...new Set(products.map(p => p.category))];
 	for (let category of categories) {
 		rows.push(<ProductCategoryRow category={category} key={category} />);
@@ -63,10 +63,10 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	</tr>
 }
 
-
 const mapStateToProps = state => {
-	return {
-		nbArticles: state.nbArticles || 0
+	return {...state,
+		nbArticles: state.nbArticles || 0,
+		products: state.products
 	};
 };
 

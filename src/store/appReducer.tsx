@@ -8,7 +8,6 @@ export const appReducer = (state, action) => {
 			const nbArticles = state.nbArticles > 0 ? state.nbArticles - 1 : 0;
 			return {...state, nbArticles};
 		case CREATE_PRODUCT:
-			console.log("APP REDUCER CREATE, stat", state, action.payload)
 			return {...state, products: action.payload};
 		default:
 			return state;

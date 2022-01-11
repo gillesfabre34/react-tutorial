@@ -1,7 +1,6 @@
 import './App.css';
-import { Temperature } from "./components/temperature";
 import { SearchComponent } from "./components/searchComponent";
-import { PRODUCTS } from "./data/products";
+import { store } from "./store/store";
 
 function Welcome({name, children}) {
     return <div>
@@ -15,7 +14,7 @@ function App() {
             <Welcome name="zzz" />
             {/*<Clock />*/}
             {/*<Temperature/>*/}
-            <SearchComponent products={PRODUCTS}/>
+            <SearchComponent products={store.getState().products}/>
         </div>
     );
 }

@@ -22,7 +22,7 @@ export class SearchComponent extends React.Component<{products: Product[]}, {fil
 	render() {
 		return <div>
 			<SearchBar onStockOnlyChange={this.handleStockOnlyChange} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} onTextChange={this.handleTextChange} />
-			<ProductsList filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
+			<ProductsList products={this.props.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
 			<ProductForm />
 		</div>;
 	}

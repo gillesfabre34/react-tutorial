@@ -1,5 +1,4 @@
 import { Product } from '../models/product';
-import { PRODUCTS } from '../data/products';
 import { store } from './store';
 
 export const ADD_PRODUCT = 'products/add';
@@ -16,8 +15,9 @@ export const removeProduct = () => {
 }
 
 export const createProduct = (product: Product) => {
-	const products: Product[] = [...PRODUCTS.concat(product)];
+	const products: Product[] = [...store.getState().products.concat(product)];
 	console.log("PRODUCTSSS", products)
+	store.getState().products = products;
 	console.log("PRODUCTSSS store", store.getState())
 	return {type: CREATE_PRODUCT, payload: products}
 }
