@@ -14,7 +14,6 @@ const ProductsList: React.FC<ProductsListProps> =
 	({products, filterText, inStockOnly, nbArticles}) => {
 
 	let rows: ReactElement[] = [];
-	// const products: Product[] = store.getState().products;
 	const categories: string[] = [...new Set(products.map(p => p.category))];
 	for (let category of categories) {
 		rows.push(<ProductCategoryRow category={category} key={category} />);

@@ -1,8 +1,9 @@
 import React from 'react';
-import { createStore } from '@reduxjs/toolkit';
+import { applyMiddleware, createStore } from '@reduxjs/toolkit';
 import { appReducer } from './appReducer';
 import { PRODUCTS } from '../data/products';
 import { Product } from '../models/product';
+import { formValidatorMiddleware } from './middlewares/formValidator';
 
 export interface RootState {
 	nbArticles: number,
@@ -13,4 +14,8 @@ const initialState: RootState = {
 	products: PRODUCTS
 }
 
-export const store = createStore(appReducer, initialState);
+export const store = createStore(
+	appReducer,
+	initialState,
+	applyMiddleware(formValidatorMiddleware),
+);
