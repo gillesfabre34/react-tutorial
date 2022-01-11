@@ -4,6 +4,7 @@ import { store } from './store';
 export const ADD_PRODUCT = 'products/add';
 export const REMOVE_PRODUCT = 'products/remove';
 export const CREATE_PRODUCT = 'products/create';
+export const PRODUCT_ALREADY_EXISTS = 'products/alreadyExists';
 
 export const addProduct = () => {
 	return {type: ADD_PRODUCT, payload: store.getState()}
