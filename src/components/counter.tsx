@@ -20,7 +20,7 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export const Counter: React.FC<{addProduct: () => any, removeProduct: () => any}> = ({addProduct, removeProduct}) => {
+export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: () => any}> = ({addProduct, removeProduct}) => {
 
 	const [newProducts, increment] = useIncrement(0);
 	const [isChecked, toggle] = useToggle(false);
@@ -63,5 +63,5 @@ export const mapDispatchToProps = dispatch => {
 	};
 };
 
-export const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter);
+export const Counter = connect(mapStateToProps, mapDispatchToProps)(ConnectedCounter);
 

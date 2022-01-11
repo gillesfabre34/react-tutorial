@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../models/product';
 import SearchBar from './searchBar';
 import ProductsList from './productsList';
+import { ProductForm } from './productForm';
 
 export class SearchComponent extends React.Component<{products: Product[]}, {filterText: string, inStockOnly: boolean}> {
 
@@ -22,6 +23,7 @@ export class SearchComponent extends React.Component<{products: Product[]}, {fil
 		return <div>
 			<SearchBar onStockOnlyChange={this.handleStockOnlyChange} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} onTextChange={this.handleTextChange} />
 			<ProductsList products={this.props.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
+			<ProductForm />
 		</div>;
 	}
 }

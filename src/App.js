@@ -14,7 +14,7 @@ function App() {
         <div id="app" className="App">
             <Welcome name="zzz" />
             {/*<Clock />*/}
-            <Temperature/>
+            {/*<Temperature/>*/}
             <SearchComponent products={PRODUCTS}/>
         </div>
     );
