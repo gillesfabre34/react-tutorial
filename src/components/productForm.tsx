@@ -9,7 +9,6 @@ const ConnectedProductForm: React.FC<{createProduct: (product: Product) => any}>
 
 	const handleChange = (e) => {
 		e.preventDefault();
-		// console.log("CHGGG", e.target.name, e.target.value)
 		setProduct({...product, [e.target.name]: e.target.value});
 	}
 

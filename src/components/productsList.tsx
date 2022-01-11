@@ -2,12 +2,19 @@ import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
 import { connect } from 'react-redux';
 import { Counter } from './counter';
+import { store } from '../store/store';
 
+export interface ProductsListProps  {
+	filterText: string,
+	inStockOnly: boolean,
+	nbArticles?: number,
+}
 
-const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, nbArticles?: number}> =
-	({products, filterText, inStockOnly, nbArticles}) => {
+const ProductsList: React.FC<ProductsListProps> =
+	({filterText, inStockOnly, nbArticles}) => {
 
 	let rows: ReactElement[] = [];
+	const products: Product[] = store.getState().products;
 	const categories: string[] = [...new Set(products.map(p => p.category))];
 	for (let category of categories) {
 		rows.push(<ProductCategoryRow category={category} key={category} />);
@@ -52,6 +59,7 @@ const ProductRow: NamedExoticComponent<{product: Product}> = memo(ProductRowComp
 const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 	return <tr>
 		<th colSpan={2}>{props.category}</th>
+		<th />
 	</tr>
 }
 
