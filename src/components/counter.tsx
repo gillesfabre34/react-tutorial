@@ -26,7 +26,7 @@ export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: (
 	const [isChecked, toggle] = useToggle(false);
 
 	useEffect(() => {
-		document.title = 'Total articles : ' + store.getState().nbProducts;
+		document.title = 'Total articles : ' + store.getState().nbArticles;
 	});
 
 	const add = () => {
@@ -52,7 +52,7 @@ export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: (
 
 const mapStateToProps = state => {
 	return {
-		nbProducts: state.nbProducts || 0
+		nbArticles: state.nbArticles || 0
 	};
 };
 

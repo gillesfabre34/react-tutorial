@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac77a19-1b0a-4907-8360-5abf902b8813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/productForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/slices/createProductSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/productForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/productsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/searchComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/appReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/appReducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -82,7 +87,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641814662002</updated>
-      <workItem from="1641814664005" duration="9348000" />
+      <workItem from="1641814664005" duration="10425000" />
+      <workItem from="1641888026151" duration="2219000" />
     </task>
     <servers />
   </component>

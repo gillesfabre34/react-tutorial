@@ -1,6 +1,6 @@
 import { Product } from '../models/product';
 
-export const PRODUCTS: Product[] = [
+export let PRODUCTS: Product[] = [
 	{category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
 	{category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
 	{category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Counter } from './counter';
 
 
-const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, nbProducts?: number}> =
-	({products, filterText, inStockOnly, nbProducts}) => {
+const ProductsList: React.FC<{products: Product[], filterText: string, inStockOnly: boolean, nbArticles?: number}> =
+	({products, filterText, inStockOnly, nbArticles}) => {
 
 	let rows: ReactElement[] = [];
 	const categories: string[] = [...new Set(products.map(p => p.category))];
@@ -33,7 +33,7 @@ const ProductsList: React.FC<{products: Product[], filterText: string, inStockOn
 		<tr>
 			<td>TOTAL</td>
 			<td></td>
-			<td>{nbProducts}</td>
+			<td>{nbArticles}</td>
 		</tr>
 		</tbody>
 	</table>;
@@ -58,7 +58,7 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 
 const mapStateToProps = state => {
 	return {
-		nbProducts: state.nbProducts || 0
+		nbArticles: state.nbArticles || 0
 	};
 };
 
