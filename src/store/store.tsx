@@ -1,18 +1,22 @@
 import React from 'react';
-import { applyMiddleware, compose, configureStore, createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { appReducer } from './appReducer';
 import { PRODUCTS } from '../data/products';
 import { Product } from '../models/product';
 import { formValidatorMiddleware } from './middlewares/formValidator';
 import thunk from 'redux-thunk';
+import { User } from '../components/users';
 
 export interface RootState {
 	nbArticles: number,
-	products: Product[]
+	products: Product[],
+	users: User[]
 }
+
 const initialState: RootState = {
 	nbArticles: 0,
-	products: PRODUCTS
+	products: PRODUCTS,
+	users: []
 }
 
 export const store = configureStore({

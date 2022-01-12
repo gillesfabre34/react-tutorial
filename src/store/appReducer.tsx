@@ -16,7 +16,7 @@ export const appReducer = (state, action) => {
 			return state;
 		case USERS_LOADED:
 			console.log("LOADED", action.payload);
-			return state;
+			return {...state, action};
 		default:
 			return state;
 	}

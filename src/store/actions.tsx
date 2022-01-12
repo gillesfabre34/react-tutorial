@@ -20,7 +20,9 @@ export const createProduct = (product: Product) => {
 }
 
 export const getUsers = () => {
+	console.log("getUSERSSS")
 	return function (dispatch) {
+		console.log("getUSERSSS dispatch")
 		return fetch("https://jsonplaceholder.typicode.com/users")
 			.then(response => response.json())
 			.then(json => {

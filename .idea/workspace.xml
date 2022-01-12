@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac77a19-1b0a-4907-8360-5abf902b8813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/appReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/appReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
