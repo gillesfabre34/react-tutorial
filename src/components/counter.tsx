@@ -56,7 +56,7 @@ const mapStateToProps = state => {
 	};
 };
 
-export const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 	return {
 		addProduct: () => dispatch(addProduct()),
 		removeProduct: () => dispatch(removeProduct())

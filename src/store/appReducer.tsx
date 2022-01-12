@@ -1,5 +1,6 @@
 import { ADD_PRODUCT, CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS, REMOVE_PRODUCT, USERS_LOADED } from './actions';
 import { Product } from '../models/product';
+import { store } from './store';
 
 export const appReducer = (state, action) => {
 	switch (action.type) {
@@ -16,7 +17,7 @@ export const appReducer = (state, action) => {
 			return state;
 		case USERS_LOADED:
 			console.log("LOADED", action.payload);
-			return {...state, action};
+			return {...state, users: action.payload};
 		default:
 			return state;
 	}

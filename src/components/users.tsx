@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { addProduct, getUsers, removeProduct } from '../store/actions';
-import { store } from '../store/store';
+import { RootState, store } from '../store/store';
 
 export interface User {
 	id: string,
@@ -13,29 +13,31 @@ export interface User {
 	website: string,
 	company: object
 }
-export const Users: React.FC<any> = (props) => {
+const Users: React.FC<{getUsers: any}> = ({getUsers}) => {
+// const Users: React.FC<{ users: User[] }> = ({users}) => {
 // export const Users: React.FC<User> = (props: PropsWithChildren<User>) => {
 	let rows: ReactElement[] = [];
-	const [users, setUsers] = useState([]);
+	const dispatch = useDispatch();
+	// console.log("USERSSSS", users)
+	const [usersList, setUsers] = useState([]);
+	const usrs = useSelector((state: RootState) => state.users);
+	// dispatch(getUsers());
+	// getUsers();
 
 	useEffect( () => {
-		console.log("mounted", props)
-		getUsers();
-		const zzz = getUsers();
-		console.log("zzz", zzz)
-		const aaa = store.getState().users;
-		console.log("aaa", aaa)
-	})
-	const add = () => {
-		getUsers();
-	}
+		console.log("mounted")
+		dispatch(getUsers());
+		console.log("after dispatch ?", store.getState())
+	}, [dispatch, getUsers])
+	// }, [dispatch, getUsers])
+	console.log("after dispatch usrs", usrs)
 
 	return <div className="m-3">
 		<table className="table table-bordered border">
 			<thead>
 				<tr>
 					<th>List of users</th>
-					<th><button onClick={add}>get users</button></th>
+					<th>{usrs.map(u => u.name).join()}</th>
 				</tr>
 			</thead>
 			{rows}
@@ -51,7 +53,7 @@ const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
 	return {
-		getUsers: () => dispatch(getUsers()),
+		getUsers: () => dispatch(getUsers),
 	};
 };
 

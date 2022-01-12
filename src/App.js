@@ -1,7 +1,7 @@
 import './App.css';
 import { SearchComponent } from "./components/searchComponent";
 import { store } from "./store/store";
-import { Users } from "./components/users";
+import Users from "./components/users";
 
 function App() {
     return (
@@ -15,6 +15,7 @@ function App() {
             <div className="col-md-5">
                 <div className="fw-bolder m-3">Users</div>
                 <Users />
+                {/*<Users users={store.getState().users} />*/}
             </div>
         </div>
     );
