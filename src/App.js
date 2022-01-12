@@ -1,20 +1,21 @@
 import './App.css';
 import { SearchComponent } from "./components/searchComponent";
 import { store } from "./store/store";
+import { Users } from "./components/users";
 
-function Welcome({name, children}) {
-    return <div>
-        <h1>Hello {name}</h1>
-        <p>{children}</p>
-    </div>
-}
 function App() {
     return (
-        <div id="app" className="App">
-            <Welcome name="zzz" />
+        <div id="app" className="App row">
             {/*<Clock />*/}
             {/*<Temperature/>*/}
-            <SearchComponent products={store.getState().products}/>
+            <div className="col-md-7 border-end border-2">
+                <div className="fw-bolder m-3">Products</div>
+                <SearchComponent products={store.getState().products}/>
+            </div>
+            <div className="col-md-5">
+                <div className="fw-bolder m-3">Users</div>
+                <Users />
+            </div>
         </div>
     );
 }

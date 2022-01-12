@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS, REMOVE_PRODUCT } from './actions';
+import { ADD_PRODUCT, CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS, REMOVE_PRODUCT, USERS_LOADED } from './actions';
 import { Product } from '../models/product';
 
 export const appReducer = (state, action) => {
@@ -12,7 +12,10 @@ export const appReducer = (state, action) => {
 			const products: Product[] = action.payload.products.concat(action.payload.product);
 			return {...state, products};
 		case PRODUCT_ALREADY_EXISTS:
-			console.log("RED ALRRRR", action)
+			console.log("Error : ", action)
+			return state;
+		case USERS_LOADED:
+			console.log("LOADED", action.payload);
 			return state;
 		default:
 			return state;

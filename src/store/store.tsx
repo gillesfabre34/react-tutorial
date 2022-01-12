@@ -1,9 +1,10 @@
 import React from 'react';
-import { applyMiddleware, createStore } from '@reduxjs/toolkit';
+import { applyMiddleware, compose, configureStore, createStore } from '@reduxjs/toolkit';
 import { appReducer } from './appReducer';
 import { PRODUCTS } from '../data/products';
 import { Product } from '../models/product';
 import { formValidatorMiddleware } from './middlewares/formValidator';
+import thunk from 'redux-thunk';
 
 export interface RootState {
 	nbArticles: number,
@@ -14,8 +15,16 @@ const initialState: RootState = {
 	products: PRODUCTS
 }
 
-export const store = createStore(
-	appReducer,
-	initialState,
-	applyMiddleware(formValidatorMiddleware),
-);
+export const store = configureStore({
+	preloadedState: initialState,
+	reducer: appReducer,
+	middleware: [thunk, formValidatorMiddleware]
+});
+
+// const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+//
+// export const store = createStore(
+// 	appReducer,
+// 	initialState,
+// 	storeEnhancers(applyMiddleware(formValidatorMiddleware, thunk)),
+// );

@@ -8,7 +8,6 @@ function productAlreadyExists(products: Product[], newProduct: Product): boolean
 export const formValidatorMiddleware = ({dispatch}) => {
 	return function (next) {
 		return function (action) {
-			// console.log('MDLWWWW', action)
 			if (action.type === CREATE_PRODUCT) {
 				if (!action.payload.product?.name || productAlreadyExists(action.payload.products, action.payload.product)) {
 					console.log("INCORRECT NAME", action.payload.product);
