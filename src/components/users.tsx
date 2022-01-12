@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { addProduct, getUsers, removeProduct } from '../store/actions';
-import { RootState, store } from '../store/store';
+import React, { ReactElement, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getUsers } from '../store/actions';
+import { store } from '../store/store';
 
 export interface User {
 	id: string,
@@ -14,33 +14,31 @@ export interface User {
 	company: object
 }
 const Users: React.FC<{getUsers: any}> = ({getUsers}) => {
-// const Users: React.FC<{ users: User[] }> = ({users}) => {
-// export const Users: React.FC<User> = (props: PropsWithChildren<User>) => {
 	let rows: ReactElement[] = [];
-	const dispatch = useDispatch();
-	// console.log("USERSSSS", users)
-	const [usersList, setUsers] = useState([]);
-	const usrs = useSelector((state: RootState) => state.users);
-	// dispatch(getUsers());
-	// getUsers();
+	const users = store.getState().users;
 
 	useEffect( () => {
-		console.log("mounted")
-		dispatch(getUsers());
-		console.log("after dispatch ?", store.getState())
-	}, [dispatch, getUsers])
-	// }, [dispatch, getUsers])
-	console.log("after dispatch usrs", usrs)
+		getUsers();
+	}, [getUsers])
+
+	let i = 0;
+	for (const user of users) {
+		rows.push(<tr key={i}>
+			<td>{user.name}</td>
+		</tr>);
+		i++;
+	}
 
 	return <div className="m-3">
 		<table className="table table-bordered border">
 			<thead>
 				<tr>
 					<th>List of users</th>
-					<th>{usrs.map(u => u.name).join()}</th>
 				</tr>
 			</thead>
-			{rows}
+			<tbody>
+				{rows}
+			</tbody>
 		</table>
 	</div>;
 }

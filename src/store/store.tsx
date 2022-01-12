@@ -24,11 +24,3 @@ export const store = configureStore({
 	reducer: appReducer,
 	middleware: [thunk, formValidatorMiddleware]
 });
-
-// const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-//
-// export const store = createStore(
-// 	appReducer,
-// 	initialState,
-// 	storeEnhancers(applyMiddleware(formValidatorMiddleware, thunk)),
-// );

@@ -15,7 +15,6 @@ function App() {
             <div className="col-md-5">
                 <div className="fw-bolder m-3">Users</div>
                 <Users />
-                {/*<Users users={store.getState().users} />*/}
             </div>
         </div>
     );
