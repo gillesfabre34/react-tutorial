@@ -4,7 +4,7 @@ import { Product } from '../../models/product';
 import { RootState } from '../store';
 
 const productsSlice = createSlice({
-	name: 'product',
+	name: 'products',
 	initialState: {
 		products: PRODUCTS,
 	},
@@ -17,10 +17,14 @@ const productsSlice = createSlice({
 			console.log("Error : incorrect data", action.payload);
 			return state;
 		},
+		productAlreadyExists: (state, action) => {
+			console.log("Error : product already exists", action.payload);
+			return state;
+		},
 	}
 })
 
 export const selectProducts = (state: RootState) => state.productReducer.products;
 
-export const { createProduct, wrongProductData } = productsSlice.actions;
+export const { createProduct, wrongProductData, productAlreadyExists } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;

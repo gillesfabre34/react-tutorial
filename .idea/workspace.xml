@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3ac77a19-1b0a-4907-8360-5abf902b8813" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/productForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/productsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/appReducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/productReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/productReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/productSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/productSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/slices/productsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/productsSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
