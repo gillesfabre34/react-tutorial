@@ -4,18 +4,23 @@ import { connect, useSelector } from 'react-redux';
 import { Counter } from './counter';
 import { PRODUCTS } from '../data/products';
 import { selectProducts } from '../store/slices/productsSlice';
+import { addProduct } from '../store/actions';
+import { selectNbArticles } from '../store/slices/articleSlice';
 
 export interface ProductsListProps  {
 	filterText: string,
 	inStockOnly: boolean,
+	// updateNbArticles?: () => any,
 	nbArticles?: number,
 }
 
 const ProductsList: React.FC<ProductsListProps> =
 	({filterText, inStockOnly, nbArticles}) => {
+	// ({filterText, inStockOnly, updateNbArticles}) => {
 
 		let rows: ReactElement[] = [];
 		const products = useSelector(selectProducts);
+		nbArticles = useSelector(selectNbArticles);
 		console.log('PRODDSSS', products)
 		const categories: string[] = [...new Set(products.map(p => p.category))];
 		for (let category of categories) {
@@ -70,6 +75,12 @@ const mapStateToProps = state => {
 		nbArticles: state.nbArticles || 0,
 		products: state.products
 	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		updateNbArticles: dispatch(addProduct()),
+	}
 };
 
 export default connect(mapStateToProps)(ProductsList);

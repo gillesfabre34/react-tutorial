@@ -20,10 +20,6 @@ export const createProduct = (product: Product) => {
 	return {type: CREATE_PRODUCT, payload: product}
 }
 
-// export const createProduct = (product: Product) => {
-// 	return {type: CREATE_PRODUCT, payload: {products: store.getState().products, product}}
-// }
-
 export const getUsers = async (dispatch) => {
 	const response = await fetch("https://jsonplaceholder.typicode.com/users");
 	const json = await response.json();

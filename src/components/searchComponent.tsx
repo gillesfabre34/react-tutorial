@@ -12,11 +12,11 @@ export class SearchComponent extends React.Component<{products: Product[]}, {fil
 	}
 
 	handleStockOnlyChange = (inStockOnly: boolean) => {
-		this.setState({inStockOnly: inStockOnly})
+		this.setState({inStockOnly: inStockOnly});
 	}
 
 	handleTextChange = (text: string) => {
-		this.setState({filterText: text})
+		this.setState({filterText: text});
 	}
 
 	render() {

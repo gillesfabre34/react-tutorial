@@ -7,6 +7,7 @@ import { formValidatorMiddleware } from './middlewares/formValidator';
 import thunk from 'redux-thunk';
 // import { User } from '../components/users';
 import { productReducer } from './slices/productsSlice';
+import { articleReducer } from './slices/articleSlice';
 
 // export interface RootState {
 // 	nbArticles: number,
@@ -21,7 +22,8 @@ import { productReducer } from './slices/productsSlice';
 // }
 
 const reducer = combineReducers({
-	productReducer: productReducer
+	productReducer,
+	articleReducer
 })
 
 export const store = configureStore({

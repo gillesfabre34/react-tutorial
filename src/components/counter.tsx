@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { store } from '../store/store';
 import { addProduct, removeProduct } from '../store/actions';
 import { connect } from 'react-redux';
+import { add, articleSlice } from '../store/slices/articleSlice';
 
 function useIncrement(initialCount) {
 	const [count, setCount] = useState(initialCount);
@@ -20,7 +21,9 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: () => any}> = ({addProduct, removeProduct}) => {
+export const ConnectedCounter: React.FC<any> = ({addProduct}) => {
+// export const ConnectedCounter: React.FC<{addProduct: () => any}> = ({addProduct}) => {
+// export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: () => any}> = ({addProduct, removeProduct}) => {
 
 	const [newProducts, increment] = useIncrement(0);
 	const [isChecked, toggle] = useToggle(false);
@@ -56,12 +59,18 @@ const mapStateToProps = state => {
 	};
 };
 
-const mapDispatchToProps = dispatch => {
-	return {
-		addProduct: () => dispatch(addProduct()),
-		removeProduct: () => dispatch(removeProduct())
-	};
+const mapDispatchToProps = {
+	addProduct: articleSlice.actions.add,
+	// removeProduct: () => null
 };
+
+
+// const mapDispatchToProps = dispatch => {
+// 	return {
+// 		addProduct: () => dispatch(addProduct()),
+// 		removeProduct: () => dispatch(removeProduct())
+// 	};
+// };
 
 export const Counter = connect(mapStateToProps, mapDispatchToProps)(ConnectedCounter);
 
