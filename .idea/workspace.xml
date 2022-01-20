@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/appReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/appReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middlewares/formValidator.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1641824428" />
+                    <option name="lastUsedInstant" value="1642664088" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="temp" />
+                    <option name="lastUsedInstant" value="1642664068" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="mapDispatchProps" />
