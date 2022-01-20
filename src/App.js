@@ -14,7 +14,7 @@ function App() {
             </div>
             <div className="col-md-5">
                 <div className="fw-bolder m-3">Users</div>
-                {/*<Users />*/}
+                <Users />
             </div>
         </div>
     );

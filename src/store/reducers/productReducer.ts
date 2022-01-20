@@ -1,13 +1,13 @@
-import { ADD_PRODUCT, CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS, REMOVE_PRODUCT, WRONG_DATA } from '../actions';
+import { CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS } from '../actions';
 import { Product } from '../../models/product';
 
 export const productsReducer = (state, action) => {
 	switch (action.type) {
-		case ADD_PRODUCT:
-			return {...state, nbProducts: state.nbProducts + 1};
-		case REMOVE_PRODUCT:
-			const nbProducts = state.nbProducts > 0 ? state.nbProducts - 1 : 0;
-			return {...state, nbProducts};
+		// case ADD_PRODUCT:
+		// 	return {...state, nbProducts: state.nbProducts + 1};
+		// case REMOVE_PRODUCT:
+		// 	const nbProducts = state.nbProducts > 0 ? state.nbProducts - 1 : 0;
+		// 	return {...state, nbProducts};
 		case CREATE_PRODUCT:
 			const products: Product[] = state.products.concat(action.payload);
 			return {...state, products};

@@ -4,10 +4,12 @@ import { formValidatorMiddleware } from './middlewares/formValidator';
 import thunk from 'redux-thunk';
 import { productsReducer } from './slices/productsSlice';
 import { productReducer } from './slices/productSlice';
+import { usersReducer } from './slices/usersSlice';
 
 const reducer = combineReducers({
 	productReducer: productsReducer,
-	articleReducer: productReducer
+	articleReducer: productReducer,
+	usersReducer: usersReducer,
 })
 
 export const store = configureStore({

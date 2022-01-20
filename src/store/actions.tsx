@@ -1,5 +1,3 @@
-export const ADD_PRODUCT = 'products/add';
-export const REMOVE_PRODUCT = 'products/remove';
 export const CREATE_PRODUCT = 'products/createProduct';
 export const WRONG_DATA = 'products/wrongProductData';
 export const PRODUCT_ALREADY_EXISTS = 'products/productAlreadyExists';
