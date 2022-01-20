@@ -5,7 +5,7 @@ import { Counter } from './counter';
 import { PRODUCTS } from '../data/products';
 import { selectProducts } from '../store/slices/productsSlice';
 import { addProduct } from '../store/actions';
-import { selectNbArticles } from '../store/slices/articleSlice';
+import { selectNbArticles } from '../store/slices/productSlice';
 
 export interface ProductsListProps  {
 	filterText: string,

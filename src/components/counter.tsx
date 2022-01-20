@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { store } from '../store/store';
 import { addProduct, removeProduct } from '../store/actions';
 import { connect } from 'react-redux';
-import { add, articleSlice } from '../store/slices/articleSlice';
+import { add, productSlice } from '../store/slices/productSlice';
 
 function useIncrement(initialCount) {
 	const [count, setCount] = useState(initialCount);
@@ -29,7 +29,7 @@ export const ConnectedCounter: React.FC<any> = ({addProduct}) => {
 	const [isChecked, toggle] = useToggle(false);
 
 	useEffect(() => {
-		// document.title = 'Total articles : ' + store.getState().nbArticles;
+		// document.title = 'Total articles : ' + store.getState().nbProducts;
 	});
 
 	const add = () => {
@@ -60,17 +60,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-	addProduct: articleSlice.actions.add,
+	addProduct: productSlice.actions.add,
 	// removeProduct: () => null
 };
-
-
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		addProduct: () => dispatch(addProduct()),
-// 		removeProduct: () => dispatch(removeProduct())
-// 	};
-// };
 
 export const Counter = connect(mapStateToProps, mapDispatchToProps)(ConnectedCounter);
 

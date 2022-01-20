@@ -19,4 +19,4 @@ const productsSlice = createSlice({
 export const selectProducts = (state: RootState) => state.productReducer.products;
 
 export const { create } = productsSlice.actions;
-export const productReducer = productsSlice.reducer;
+export const productsReducer = productsSlice.reducer;

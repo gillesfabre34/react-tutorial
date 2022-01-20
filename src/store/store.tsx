@@ -6,24 +6,24 @@ import { Product } from '../models/product';
 import { formValidatorMiddleware } from './middlewares/formValidator';
 import thunk from 'redux-thunk';
 // import { User } from '../components/users';
-import { productReducer } from './slices/productsSlice';
-import { articleReducer } from './slices/articleSlice';
+import { productsReducer } from './slices/productsSlice';
+import { productReducer } from './slices/productSlice';
 
 // export interface RootState {
-// 	nbArticles: number,
+// 	nbProducts: number,
 // 	products: Product[],
 // 	// users: User[]
 // }
 
 // const initialState: RootState = {
-// 	nbArticles: 0,
+// 	nbProducts: 0,
 // 	products: PRODUCTS,
 // 	// users: []
 // }
 
 const reducer = combineReducers({
-	productReducer,
-	articleReducer
+	productReducer: productsReducer,
+	articleReducer: productReducer
 })
 
 export const store = configureStore({
@@ -33,3 +33,4 @@ export const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof reducer>;
+export type AppDispatch = typeof store.dispatch;
