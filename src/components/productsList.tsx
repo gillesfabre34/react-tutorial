@@ -5,7 +5,7 @@ import { Counter } from './counter';
 import { PRODUCTS } from '../data/products';
 import { selectProducts } from '../store/slices/productsSlice';
 import { addProduct } from '../store/actions';
-import { selectNbArticles } from '../store/slices/productSlice';
+import { selectNbProducts } from '../store/slices/productSlice';
 
 export interface ProductsListProps  {
 	filterText: string,
@@ -20,7 +20,7 @@ const ProductsList: React.FC<ProductsListProps> =
 
 		let rows: ReactElement[] = [];
 		const products = useSelector(selectProducts);
-		nbArticles = useSelector(selectNbArticles);
+		nbArticles = useSelector(selectNbProducts);
 		console.log('PRODDSSS', products)
 		const categories: string[] = [...new Set(products.map(p => p.category))];
 		for (let category of categories) {

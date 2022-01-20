@@ -1,9 +1,11 @@
-import { Product } from '../models/product';
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { createProduct } from '../store/actions';
+import { connect, ConnectedProps } from 'react-redux';
+import { createProduct } from '../store/slices/productsSlice';
 
-const ConnectedProductForm: React.FC<{createProduct: (product: Product) => any}> = ({createProduct}) => {
+type ProductFormProps = ConnectedProps<typeof connector>;
+
+const ConnectedProductForm: React.FC<ProductFormProps> = ({createProduct}) => {
+// const ConnectedProductForm: React.FC<{createProduct: (product: Product) => any}> = ({createProduct}) => {
 
 	const [product, setProduct] = useState({category: '', name: '', stocked: true, price: '0'});
 
@@ -35,10 +37,10 @@ const ConnectedProductForm: React.FC<{createProduct: (product: Product) => any}>
 	</div>
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		createProduct: (product: Product) => dispatch(createProduct(product))
-	}
+const mapDispatchToProps = {
+	createProduct
 }
 
-export const ProductForm = connect(null, mapDispatchToProps)(ConnectedProductForm);
+const connector = connect(null, mapDispatchToProps);
+
+export const ProductForm = connector(ConnectedProductForm);

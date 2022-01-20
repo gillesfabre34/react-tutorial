@@ -11,9 +11,9 @@ export const productsReducer = (state, action) => {
 		case CREATE_PRODUCT:
 			const products: Product[] = state.products.concat(action.payload);
 			return {...state, products};
-		case WRONG_DATA:
-			console.log("Error : incorrect data", action.payload);
-			return state;
+		// case WRONG_DATA:
+		// 	console.log("Error : incorrect data", action.payload);
+		// 	return state;
 		case PRODUCT_ALREADY_EXISTS:
 			console.log("Error : product already exists", action.payload);
 			return state;

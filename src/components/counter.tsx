@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { productSlice, selectNbArticles } from '../store/slices/productSlice';
+import { addProduct, removeProduct, selectNbProducts } from '../store/slices/productSlice';
+
+export interface CounterProps {
+	addProduct: any;
+	removeProduct: any;
+}
 
 function useIncrement(initialCount) {
 	const [count, setCount] = useState(initialCount);
@@ -19,13 +24,11 @@ function useToggle(visible) {
 	return [visibility, toggle];
 }
 
-export const ConnectedCounter: React.FC<any> = ({addProduct, removeProduct}) => {
-// export const ConnectedCounter: React.FC<{addProduct: () => any}> = ({addProduct}) => {
-// export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: () => any}> = ({addProduct, removeProduct}) => {
+export const ConnectedCounter: React.FC<CounterProps> = ({addProduct, removeProduct}) => {
 
 	const [newProducts, increment] = useIncrement(0);
 	const [isChecked, toggle] = useToggle(false);
-	const nbProducts = useSelector(selectNbArticles);
+	const nbProducts: number = useSelector(selectNbProducts);
 
 	useEffect(() => {
 		document.title = 'Total articles : ' + nbProducts;
@@ -39,8 +42,8 @@ export const ConnectedCounter: React.FC<any> = ({addProduct, removeProduct}) => 
 	const remove = () => {
 		if (newProducts > 0) {
 			increment(-1);
+			removeProduct();
 		}
-		removeProduct();
 	}
 
 	return <div>
@@ -52,16 +55,10 @@ export const ConnectedCounter: React.FC<any> = ({addProduct, removeProduct}) => 
 }
 
 
-const mapStateToProps = state => {
-	return {
-		nbArticles: state.nbArticles || 0
-	};
-};
-
 const mapDispatchToProps = {
-	addProduct: productSlice.actions.add,
-	removeProduct: productSlice.actions.remove
+	addProduct,
+	removeProduct
 };
 
-export const Counter = connect(mapStateToProps, mapDispatchToProps)(ConnectedCounter);
+export const Counter = connect(null, mapDispatchToProps)(ConnectedCounter);
 

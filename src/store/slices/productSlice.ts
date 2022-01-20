@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
-interface CounterProductsState {
+export interface CounterProductsState {
 	nbProducts: number;
 }
 
@@ -10,21 +10,20 @@ const initialState: CounterProductsState = {
 }
 
 export const productSlice = createSlice({
-	name: 'article',
+	name: 'product',
 	initialState,
 	reducers: {
-		add: (state, action) => {
+		addProduct: (state, action) => {
 			return {...state, nbProducts: state.nbProducts + 1};
 		},
-		remove: (state, action) => {
-			console.log('REMOVE', state.nbProducts)
+		removeProduct: (state, action) => {
 			const nbProducts = state.nbProducts > 0 ? state.nbProducts - 1 : 0;
 			return {...state, nbProducts};
 		},
 	}
 })
 
-export const selectNbArticles = (state: RootState) => state.articleReducer.nbProducts;
+export const selectNbProducts = (state: RootState) => state.articleReducer.nbProducts;
 
-// export const [addProduct, removeProduct] = productSlice.actions;
+export const {addProduct, removeProduct} = productSlice.actions;
 export const productReducer = productSlice.reducer;

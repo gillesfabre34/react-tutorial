@@ -9,14 +9,18 @@ const productsSlice = createSlice({
 		products: PRODUCTS,
 	},
 	reducers: {
-		create: (state, action) => {
+		createProduct: (state, action) => {
 			const products: Product[] = state.products.concat(action.payload);
 			return {...state, products};
-		}
+		},
+		wrongProductData: (state, action) => {
+			console.log("Error : incorrect data", action.payload);
+			return state;
+		},
 	}
 })
 
 export const selectProducts = (state: RootState) => state.productReducer.products;
 
-export const { create } = productsSlice.actions;
+export const { createProduct, wrongProductData } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;
