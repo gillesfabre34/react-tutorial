@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac77a19-1b0a-4907-8360-5abf902b8813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/hooks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/productsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/appReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/appReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/productReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/productReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/articleSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/productSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/productsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/productsSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/slices/productSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/productSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +32,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="slice" />
-                    <option name="lastUsedInstant" value="1642675204" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1642685524" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1642664088" />
+                    <option name="branchName" value="slice" />
+                    <option name="lastUsedInstant" value="1642675204" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="temp" />
