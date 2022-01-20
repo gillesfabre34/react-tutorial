@@ -1,14 +1,7 @@
-import {
-	ADD_PRODUCT,
-	CREATE_PRODUCT,
-	WRONG_DATA,
-	PRODUCT_ALREADY_EXISTS,
-	REMOVE_PRODUCT,
-	USERS_LOADED
-} from './actions';
-import { Product } from '../models/product';
+import { ADD_PRODUCT, CREATE_PRODUCT, PRODUCT_ALREADY_EXISTS, REMOVE_PRODUCT, WRONG_DATA } from '../actions';
+import { Product } from '../../models/product';
 
-export const appReducer = (state, action) => {
+export const productReducer = (state, action) => {
 	switch (action.type) {
 		case ADD_PRODUCT:
 			return {...state, nbArticles: state.nbArticles + 1};
@@ -24,8 +17,6 @@ export const appReducer = (state, action) => {
 		case PRODUCT_ALREADY_EXISTS:
 			console.log("Error : product already exists", action.payload);
 			return state;
-		case USERS_LOADED:
-			return {...state, users: action.payload};
 		default:
 			return state;
 	}

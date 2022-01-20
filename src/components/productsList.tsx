@@ -1,49 +1,52 @@
 import React, { memo, NamedExoticComponent, ReactElement } from 'react';
 import { Product } from '../models/product';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { Counter } from './counter';
+import { PRODUCTS } from '../data/products';
+import { selectProducts } from '../store/slices/productsSlice';
 
 export interface ProductsListProps  {
-	products: Product[],
 	filterText: string,
 	inStockOnly: boolean,
 	nbArticles?: number,
 }
 
 const ProductsList: React.FC<ProductsListProps> =
-	({products, filterText, inStockOnly, nbArticles}) => {
+	({filterText, inStockOnly, nbArticles}) => {
 
-	let rows: ReactElement[] = [];
-	const categories: string[] = [...new Set(products.map(p => p.category))];
-	for (let category of categories) {
-		rows.push(<ProductCategoryRow category={category} key={category} />);
-		const categoryProducts: Product[] = products.filter(
-			p => p.category === category
-				&& (!inStockOnly || (inStockOnly && p.stocked))
-				&& (!filterText || (filterText && p.name.includes(filterText)))
-		);
-		for (let product of categoryProducts) {
-			rows.push(<ProductRow key={product.name} product={product} />);
+		let rows: ReactElement[] = [];
+		const products = useSelector(selectProducts);
+		console.log('PRODDSSS', products)
+		const categories: string[] = [...new Set(products.map(p => p.category))];
+		for (let category of categories) {
+			rows.push(<ProductCategoryRow category={category} key={category} />);
+			const categoryProducts: Product[] = products.filter(
+				p => p.category === category
+					&& (!inStockOnly || (inStockOnly && p.stocked))
+					&& (!filterText || (filterText && p.name.includes(filterText)))
+			);
+			for (let product of categoryProducts) {
+				rows.push(<ProductRow key={product.name} product={product} />);
+			}
 		}
+		return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
+			<thead>
+			<tr>
+				<td>Name</td>
+				<td>Price</td>
+				<td>Articles</td>
+			</tr>
+			</thead>
+			<tbody>
+			{rows}
+			<tr>
+				<td>TOTAL</td>
+				<td></td>
+				<td>{nbArticles}</td>
+			</tr>
+			</tbody>
+		</table>;
 	}
-	return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
-		<thead>
-		<tr>
-			<td>Name</td>
-			<td>Price</td>
-			<td>Articles</td>
-		</tr>
-		</thead>
-		<tbody>
-		{rows}
-		<tr>
-			<td>TOTAL</td>
-			<td></td>
-			<td>{nbArticles}</td>
-		</tr>
-		</tbody>
-	</table>;
-}
 
 const ProductRowComponent: React.FC<{product: Product}> = ({product}) => {
 	return <tr>

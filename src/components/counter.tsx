@@ -26,7 +26,7 @@ export const ConnectedCounter: React.FC<{addProduct: () => any, removeProduct: (
 	const [isChecked, toggle] = useToggle(false);
 
 	useEffect(() => {
-		document.title = 'Total articles : ' + store.getState().nbArticles;
+		// document.title = 'Total articles : ' + store.getState().nbArticles;
 	});
 
 	const add = () => {
