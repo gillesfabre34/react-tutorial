@@ -1,8 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { getUsers } from '../store/actions';
-import { store } from '../store/store';
-import { selectUsers } from '../store/slices/usersSlice';
+import { getUsers, selectUsers } from '../store/slices/usersSlice';
 
 export interface User {
 	id: string,
@@ -14,6 +12,7 @@ export interface User {
 	website: string,
 	company: object
 }
+
 const Users: React.FC<{getUsers: any}> = ({getUsers}) => {
 	let rows: ReactElement[] = [];
 	const users: User[] = useSelector(selectUsers);
@@ -44,16 +43,8 @@ const Users: React.FC<{getUsers: any}> = ({getUsers}) => {
 	</div>;
 }
 
-const mapStateToProps = state => {
-	return {...state,
-		users: state.users
-	};
+export const mapDispatchToProps = {
+	getUsers
 };
 
-export const mapDispatchToProps = dispatch => {
-	return {
-		getUsers: () => dispatch(getUsers),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(null, mapDispatchToProps)(Users);
