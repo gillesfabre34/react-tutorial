@@ -13,6 +13,7 @@ export interface ProductsListProps  {
 export const ProductsList: React.FC<ProductsListProps> =
 	({filterText, inStockOnly}) => {
 
+
 		let rows: ReactElement[] = [];
 		const products = useSelector(selectProducts);
 		const nbArticles = useSelector(selectNbProducts);

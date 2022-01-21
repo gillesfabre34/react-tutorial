@@ -7,7 +7,5 @@ L
 src/components/searchBar.tsx,c/2/c231b3992d1ba3f5e059b8a6fbd4895cc3f3a62e
 9
 	yarn.lock,5/3/53585a096fe3a3b96321113856ae62602995a33b
-?
-src/App.test.js,9/2/923703ced91ac38943d37930d9d27a7ebe8f01ad
 A
 src/setupTests.js,b/7/b7e8d8f421068b8d51c89805d2035e747be2ff17
