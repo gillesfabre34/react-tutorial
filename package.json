@@ -6,13 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
   },
   "browserslist": {
     "production": [
@@ -41,14 +36,18 @@
   },
   "devDependencies": {
     "@babel/preset-env": "7.13.5",
-    "@testing-library/react": "^12.1.2",
     "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/parser": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
     "babel-core": "6.26.3",
     "babel-eslint": "10.1.0",
+    "eslint": "^8.7.0",
+    "eslint-config-react-app": "^7.0.0",
     "jest": "^27.4.7"
   }
 }
