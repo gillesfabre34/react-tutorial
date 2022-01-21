@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { User } from '../../components/users';
 import { RootState } from '../store';
 import { GET_USERS } from '../actions';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface UsersState {
 	users: User[];
@@ -38,18 +37,12 @@ export const getUsers = createAsyncThunk(GET_USERS, getUsersThunk);
 const usersSlice = createSlice({
 	name: 'users',
 	initialState,
-	reducers: {
-		getUsers: (state, action) => {
+	reducers: {},
+	extraReducers: builder => {
+		builder.addCase(getUsers.fulfilled, (state: any, action) => {
 			state.users = action.payload;
-		}
-	},
-// -----------------------------------   RTK Query training   -------------------------------
-// 	extraReducers: builder => {
-// 		builder.addCase(getUsers.fulfilled, (state: any, action) => {
-// 			state.users = action.payload;
-// 		})
-// 	}
-// --------------------------------   End of RTK Query training   -------------------------------
+		})
+	}
 });
 
 export const selectUsers = (state: RootState) => state.usersReducer.users;
