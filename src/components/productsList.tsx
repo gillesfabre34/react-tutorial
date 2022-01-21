@@ -29,7 +29,7 @@ export const ProductsList: React.FC<ProductsListProps> =
 				rows.push(<ProductRow key={product.name} product={product} />);
 			}
 		}
-		return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5">
+		return <table className="table w-50 table-bordered table-hover m-auto mt-3 mb-5" data-testid="ProductsListTable">
 			<thead>
 			<tr>
 				<td>Name</td>
