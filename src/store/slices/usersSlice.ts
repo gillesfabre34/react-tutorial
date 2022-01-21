@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { User } from '../../components/users';
 import { RootState } from '../store';
 import { GET_USERS } from '../actions';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface UsersState {
 	users: User[];
@@ -11,7 +12,21 @@ const initialState: UsersState = {
 	users: [],
 }
 
-const getUsersThunk = async (data: any) => {
+export const usersApi = createApi({
+	reducerPath: "usersApi",
+	baseQuery: fetchBaseQuery({baseUrl: "https://jsonplaceholder.typicode.com/"}),
+	endpoints: builder => ({
+		getUsers: builder.query<User[], any>({
+			query: () => 'users',
+			// query(arg: QueryArg): BaseQueryArg<BaseQuery> {
+			// }
+		})
+	})
+});
+
+export const { useGetUsersQuery } = usersApi;
+
+const getUsersThunk = async () => {
 	const response = await fetch("https://jsonplaceholder.typicode.com/users");
 	return await response.json();
 }
