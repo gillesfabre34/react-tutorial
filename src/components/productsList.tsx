@@ -8,15 +8,14 @@ import { selectNbProducts } from '../store/slices/productSlice';
 export interface ProductsListProps  {
 	filterText: string,
 	inStockOnly: boolean,
-	nbArticles?: number,
 }
 
-const ProductsList: React.FC<ProductsListProps> =
-	({filterText, inStockOnly, nbArticles}) => {
+export const ProductsList: React.FC<ProductsListProps> =
+	({filterText, inStockOnly}) => {
 
 		let rows: ReactElement[] = [];
 		const products = useSelector(selectProducts);
-		nbArticles = useSelector(selectNbProducts);
+		const nbArticles = useSelector(selectNbProducts);
 		const categories: string[] = [...new Set(products.map(p => p.category))];
 		for (let category of categories) {
 			rows.push(<ProductCategoryRow category={category} key={category} />);
@@ -64,12 +63,3 @@ const ProductCategoryRow: React.FC<{category: string}> = (props) => {
 		<th />
 	</tr>
 }
-
-const mapStateToProps = state => {
-	return {...state,
-		nbArticles: state.nbArticles || 0,
-		products: state.products
-	};
-};
-
-export default connect(mapStateToProps)(ProductsList);

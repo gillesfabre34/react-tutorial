@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, ChangeEventHandler, Dispatch, SetStateAction, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { createProduct } from '../store/slices/productsSlice';
+import { Product } from '../models/product';
 
 type ProductFormProps = ConnectedProps<typeof connector>;
 
-const ConnectedProductForm: React.FC<ProductFormProps> = ({createProduct}) => {
-// const ConnectedProductForm: React.FC<{createProduct: (product: Product) => any}> = ({createProduct}) => {
+const ConnectedProductForm: React.FC<ProductFormProps> = ({createProduct}: ProductFormProps) => {
 
-	const [product, setProduct] = useState({category: '', name: '', stocked: true, price: '0'});
+	const [product, setProduct]: [Product, Dispatch<SetStateAction<Product>>] = useState<Product>({category: '', name: '', stocked: true, price: '0'});
 
-	const handleChange = (e) => {
+	const handleChange: ChangeEventHandler<HTMLInputElement> = (e: ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		setProduct({...product, [e.target.name]: e.target.value});
 	}

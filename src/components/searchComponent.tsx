@@ -1,8 +1,8 @@
 import React from 'react';
 import { Product } from '../models/product';
 import SearchBar from './searchBar';
-import ProductsList from './productsList';
 import { ProductForm } from './productForm';
+import { ProductsList } from './productsList';
 
 export class SearchComponent extends React.Component<{products: Product[]}, {filterText: string, inStockOnly: boolean}> {
 
