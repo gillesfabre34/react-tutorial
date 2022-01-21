@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import { wrap } from './utils';
 
-test('ProductsList', () => {
+test('ProductsList queryByText', () => {
 	render(<Provider store={store}>
 		<ProductsList filterText='' inStockOnly={true} />
 	</Provider>);
@@ -13,7 +13,13 @@ test('ProductsList', () => {
 	expect(screen.queryByText('Name')).toBeInTheDocument();
 });
 
-test('ProductsList', () => {
+test('ProductsList getByTestId', () => {
 	wrap(<ProductsList filterText='' inStockOnly={true} />);
 	expect(screen.getByTestId('ProductsListTable')).toBeInTheDocument();
+});
+
+test('ProductsList get 2 sports with stocks', () => {
+	wrap(<ProductsList filterText='' inStockOnly={true} />);
+	const sports = screen.queryAllByText(/ball/);
+	expect(sports?.length).toEqual(2);
 });
