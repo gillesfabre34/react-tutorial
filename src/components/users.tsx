@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { getUsers, selectUsers, useGetUsersQuery } from '../store/slices/usersSlice';
+import { getUsers, selectUsers } from '../store/slices/usersSlice';
 
 export interface User {
 	id: string,
@@ -17,11 +17,15 @@ const Users: React.FC<{getUsers: any}> = ({getUsers}) => {
 	let rows: ReactElement[] = [];
 	const users: User[] = useSelector(selectUsers);
 
-	const {data, error, isLoading} = useGetUsersQuery(null);
+    // -----------------------------------   RTK Query training   -------------------------------
 
-	console.log("USERS FROM RTKKKK", data);
-	console.log("USERS FROM RTKKKK error", error);
-	console.log("USERS FROM RTKKKK isLoading", isLoading);
+	// const {data, error, isLoading} = useGetUsersQuery('someQuery');
+	// console.log("data ", data);
+	// console.log("error", error);
+	// console.log("isLoading", isLoading);
+	// const users: User[] = data ?? [];
+
+    // --------------------------------   End of RTK Query training   -------------------------------
 
 	useEffect( () => {
 		getUsers();

@@ -3,18 +3,19 @@ import { formValidatorMiddleware } from './middlewares/formValidator';
 import thunk from 'redux-thunk';
 import { productsReducer } from './slices/productsSlice';
 import { productReducer } from './slices/productSlice';
-import { usersApi, usersReducer } from './slices/usersSlice';
+import { usersReducer } from './slices/usersSlice';
 
 const reducer = combineReducers({
 	productReducer: productsReducer,
 	articleReducer: productReducer,
 	usersReducer: usersReducer,
-	[usersApi.reducerPath]: usersApi.reducer,
+	// [usersApi.reducerPath]: usersApi.reducer,
 })
 
 export const store = configureStore({
 	reducer,
-	middleware: [thunk, formValidatorMiddleware, usersApi.middleware]
+	middleware: [thunk, formValidatorMiddleware]
+	// middleware: [thunk, formValidatorMiddleware, usersApi.middleware]
 });
 
 export type RootState = ReturnType<typeof reducer>;
